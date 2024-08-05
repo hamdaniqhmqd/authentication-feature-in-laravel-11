@@ -18,7 +18,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="{{ asset('storage/asset/meme kucing.jpg') }}" alt="">
+                <img src="{{ asset('asset/' . $manager->gambar) }}" alt="">
             </div>
 
             <span class="logo_name">CodingLab</span>
@@ -26,14 +26,12 @@
 
         <div class="menu-items">
             <ul class="nav-links" style="padding-left: 0">
-                <li><a href="{{ route('manager/dashboard') }}">
-                    <i class='bx bxs-dashboard'></i>
+                <li>
+                    <a href="{{ route('manager/dashboard') }}">
+                        <i class='bx bxs-dashboard'></i>
                         <span class="link-name">Dahsboard</span>
-                    </a></li>
-                <li><a href="#">
-                    <i class='bx bxs-user-rectangle'></i>
-                        <span class="link-name">Profile</span>
-                    </a></li>
+                    </a>
+                </li>
             </ul>
 
             <ul class="logout-mode" style="padding-left: 0">
@@ -53,7 +51,7 @@
 
             <div class="profile">
                 <span class="admin-name">{{ $manager->nama }}</span>
-                <img src="{{ asset('storage/asset/meme kucing.jpg') }}" alt="">
+                <img src="{{ asset('asset/' . $manager->gambar) }}" alt="">
             </div>
         </div>
 

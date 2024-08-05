@@ -19,7 +19,7 @@
         <form action="{{ url('process_login') }}" method="POST">
             @csrf
             <div class="input-box">
-                <input type="text" name="username" id="name" required value="{{ old('name') }}"/>
+                <input type="text" name="username" id="name" required value="{{ old('name') }}" />
                 <label for="name" id="labeluser">Username</label>
                 <i class="fa fa-user" id="user_icon"></i>
             </div>
@@ -30,15 +30,15 @@
             </div>
             <div class="forget">
                 <label>
-                    <input type="checkbox" id="checkbox"/> Remember me
+                    <input type="checkbox" id="checkbox" /> Remember me
                 </label>
-                <a href="{{ url('/forget') }}">Forget Password</a>
             </div>
             <div class="input-box button">
                 <input id="button" type="submit" value="Submit" class="" required />
             </div>
             <div class="register">
-                <span class="text">Don't have an account? </span><a href="{{ url('/register') }}" class="link">Register</a>
+                <span class="text">Don't have an account? </span><a href="{{ url('/register') }}"
+                    class="link">Register</a>
             </div>
         </form>
     </div>
@@ -54,7 +54,7 @@
                 timer: 2000
             });
         @elseif (session('error'))
-        Swal.fire({
+            Swal.fire({
                 icon: "error",
                 title: "PERINGATAN",
                 text: "{{ session('error') }}",

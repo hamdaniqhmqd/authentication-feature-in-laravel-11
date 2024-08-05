@@ -21,11 +21,11 @@ class Admin
                 return $next($request);
             } else {
                 Auth::logout();
-                return redirect('/login');
+                return redirect('/');
             }
         } else {
             Auth::logout();
-            return redirect('/login');
+            return redirect('/');
         }
         return $next($request);
     }

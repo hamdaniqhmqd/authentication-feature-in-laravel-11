@@ -25,7 +25,7 @@
             <div class="input-box">
                 <input type="email" name="email" id="email" required />
                 <label for="email" id="labelemail">Email</label>
-                <i class="fa fa-user" id="user_icon"></i>
+                <i class="fa fa-envelope" id="user_icon"></i>
             </div>
             <div class="input-box">
                 <input type="password" name="password" id="pass" required />
@@ -36,7 +36,6 @@
                 <label>
                     <input type="checkbox" id="checkbox" /> Remember me
                 </label>
-                <a href="{{ url('/forget') }}">Forget Password</a>
             </div>
             <div class="input-box button">
                 <input id="button" type="submit" value="Submit" class="" required />
@@ -58,7 +57,7 @@
                 timer: 2000
             });
         @elseif (session('error'))
-        Swal.fire({
+            Swal.fire({
                 icon: "error",
                 title: "PERINGATAN",
                 text: "{{ session('error') }}",

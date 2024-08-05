@@ -14,37 +14,37 @@ use function Ramsey\Uuid\v1;
 
 class AuthController extends Controller
 {
-	public function register(): View
-	{
-		return view('Auth.register');
-	}
+    public function register(): View
+    {
+        return view('Auth.register');
+    }
 
-	public function process_register(Request $request): RedirectResponse
-	{
-		$request->validate([
-			'username' => 'required|max:255',
-			'email' => 'required|email|max:255|unique:users',
-			'password' => 'required|min:8',
-		]);
+    public function process_register(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'username' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:8',
+        ]);
 
         $id = date('Ymd');
 
-		User::create([
-            'id'=> $id,
-			'nama' => $request->username,
-			'username' => $request->username,
-			'email' => $request->email,
-			'password' => Hash::make($request->password),
+        User::create([
+            'id' => $id,
+            'nama' => $request->username,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
             'remember_token'    => Str::random(20),
-		]);
+        ]);
 
-		return redirect('/')->with(['success' => 'Register successfully']);
-	}
+        return redirect('/')->with(['success' => 'Register successfully']);
+    }
 
-	public function login(): View
-	{
-		return view('Auth.login');
-	}
+    public function login(): View
+    {
+        return view('Auth.login');
+    }
 
     public function process_login(Request $request): RedirectResponse
     {
@@ -66,12 +66,8 @@ class AuthController extends Controller
         }
     }
 
-	public function forget(): View
-	{
-		return view('Auth.forget');
-	}
-
-    public function logout(): RedirectResponse{
+    public function logout(): RedirectResponse
+    {
         Auth::logout();
         return redirect('/')->with(['success' => 'Logout successfully']);
     }
